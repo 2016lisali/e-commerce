@@ -3,7 +3,7 @@
 import React, { Fragment, useCallback, useEffect, useRef, useState } from 'react'
 import qs from 'qs'
 
-import { Category, Product } from '../../../payload/payload-types'
+import { Product } from '../../../payload/payload-types'
 import type { ArchiveBlockProps } from '../../_blocks/ArchiveBlock/types'
 import { useFilter } from '../../_providers/Filter'
 import { Card } from '../Card'
@@ -28,8 +28,13 @@ export type Props = {
   relationTo?: 'products'
   populateBy?: 'collection' | 'selection'
   showPageRange?: boolean
+  selectedDocs: {
+    relationTo: 'products'
+    value: string | Product
+  }[]
   onResultChange?: (result: Result) => void // eslint-disable-line no-unused-vars
   limit?: number
+  sort: string
   populatedDocs?: ArchiveBlockProps['populatedDocs']
   populatedDocsTotal?: ArchiveBlockProps['populatedDocsTotal']
   categories?: ArchiveBlockProps['categories']
